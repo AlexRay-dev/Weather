@@ -1,4 +1,4 @@
-import {getCelsius, getDate, getTime} from "../utils";
+import {getCelsius, getDate, getTime} from "../../shared/utils";
 import {useSelector} from "react-redux";
 
 function TabForecast() {

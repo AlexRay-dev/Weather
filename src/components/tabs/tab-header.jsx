@@ -1,19 +1,4 @@
-import TabNow from "./tab-now";
-import TabDetails from "./tab-details";
-import TabForecast from "./tab-forecast";
-
-function Tabs() {
-  return (
-    <div className="weather__tabs flex">
-      <Wrapper/>
-      <TabNow/>
-      <TabDetails/>
-      <TabForecast/>
-    </div>
-  )
-}
-
-function Wrapper() {
+function TabHeader() {
   return (
     <>
       <input className="wrap-input" type="radio" name="wrap-input" id="wrap-btn_now" value=""
@@ -27,4 +12,4 @@ function Wrapper() {
   )
 }
 
-export default Tabs;
+export default TabHeader;

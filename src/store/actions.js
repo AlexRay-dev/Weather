@@ -4,17 +4,17 @@ export const FORECAST = 'FORECAST';
 export const MAIN = 'MAIN';
 
 export function addCity(name) {
-    return {type: ADD_CITY, name}
+  return {type: ADD_CITY, name};
 }
 
 export function removeCity(name) {
-    return {type: REMOVE_CITY, name}
+  return {type: REMOVE_CITY, name};
 }
 
 export function getForecast(data) {
-    return {type: FORECAST, forecast: data}
+  return {type: FORECAST, forecast: data};
 }
 
 export function getMain(data) {
-    return {type: MAIN, main: data}
+  return {type: MAIN, main: data};
 }

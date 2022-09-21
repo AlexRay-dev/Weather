@@ -1,5 +1,5 @@
 import {useSelector} from "react-redux";
-import {getCelsius, getTime} from "../utils";
+import {getCelsius, getTime} from "../../shared/utils";
 
 function TabDetails() {
   const {name, temp, feelsLike, weather, sunrise, sunset} = useSelector(state => state.main);

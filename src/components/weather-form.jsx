@@ -9,7 +9,6 @@ function WeatherForm({showWeather}) {
     if (!value.trim()) return;
 
     showWeather(value);
-
     setValue('');
   }
 

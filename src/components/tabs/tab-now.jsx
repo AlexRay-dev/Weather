@@ -1,6 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
-import {addCity} from "../store/actions";
-import {getCelsius} from "../utils";
+import {addCity} from "../../store/actions";
+import {getCelsius} from "../../shared/utils";
 
 function TabNow() {
   const {temp, name} = useSelector(state => state.main);

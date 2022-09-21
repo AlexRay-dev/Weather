@@ -1,33 +1,12 @@
-import {useEffect} from 'react'
-import Form from "./form";
-import Locations from "./locations";
-import {API, weatherData} from "../api";
-import Tabs from "./tabs";
-import {getStorageData, setStorageData, STORAGE} from "../utils";
-import {createStore} from "redux";
-import rootReducer from "../store/reducers";
-import {Provider, useDispatch} from "react-redux";
+import {useDispatch} from "react-redux";
+import {useEffect} from "react";
+import {API, weatherData} from "../shared/consts/api";
+import {setStorageData, STORAGE} from "../shared/utils";
 import {getForecast, getMain} from "../store/actions";
-
-const defaultLocations = ['Los Angeles', 'New York', 'Kyiv', 'Tokyo', 'Berlin'];
-const defaultCity = 'Moscow';
-
-const storageCity = getStorageData(STORAGE.CURRENT_CITY) ?? defaultCity;
-const storageFavoriteList = getStorageData(STORAGE.FAVORITE_LIST) ?? defaultLocations;
-
-const storage = {
-  list: storageFavoriteList
-}
-
-const store = createStore(rootReducer, storage);
-
-function App() {
-  return (
-    <Provider store={store}>
-      <Weather/>
-    </Provider>
-  )
-}
+import Form from "./weather-form";
+import Tabs from "./tabs/tabs";
+import Locations from "./locations/locations";
+import {storageCity} from "../store";
 
 function Weather() {
   const dispatch = useDispatch();
@@ -43,11 +22,9 @@ function Weather() {
 
       if (!responseMain.name) {
         alert(`Error: ${responseMain.message}`);
-        return;
       }
 
       setStorageData(STORAGE.CURRENT_CITY, city);
-
       dispatch(getMain(responseMain));
       dispatch(getForecast(responseForecast));
     } catch (e) {
@@ -69,4 +46,4 @@ function Weather() {
   )
 }
 
-export default App
+export default Weather;

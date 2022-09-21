@@ -2,58 +2,57 @@ import {ADD_CITY, REMOVE_CITY, MAIN, FORECAST} from "./actions";
 import {combineReducers} from "redux";
 
 function citiesList(state = [], action) {
-    switch (action.type) {
-        case ADD_CITY:
-            const isFavorite = state.includes(action.name);
+  switch (action.type) {
+    case ADD_CITY:
+      const isFavorite = state.includes(action.name);
 
-            if (!action.name || isFavorite) return state;
+      if (!action.name || isFavorite) return state;
 
-            return [action.name, ...state];
-        case REMOVE_CITY:
-            return state.filter(item => item !== action.name);
-        default:
-            return state;
-    }
+      return [action.name, ...state];
+    case REMOVE_CITY:
+      return state.filter(item => item !== action.name);
+    default:
+      return state;
+  }
 }
-
 
 function mainData(state = {}, action) {
-    if (action.type === MAIN) {
-        const {
-            main: {
-                temp,
-                feels_like: feelsLike,
-            },
-            name,
-            weather: {
-                0: {
-                    main: weather,
-                },
-            },
-            sys: {
-                sunrise,
-                sunset,
-            },
-        } = action.main;
+  if (action.type === MAIN) {
+    const {
+      main: {
+        temp,
+        feels_like: feelsLike,
+      },
+      name,
+      weather: {
+        0: {
+          main: weather,
+        },
+      },
+      sys: {
+        sunrise,
+        sunset,
+      },
+    } = action.main;
 
-        return {temp, feelsLike, name, weather, sunrise, sunset}
-    }
+    return {temp, feelsLike, name, weather, sunrise, sunset}
+  }
 
-    return state;
-}
+  return state;
+};
 
 function forecastData(state = {}, action) {
-    if (action.type === FORECAST) {
-        return action.forecast;
-    }
+  if (action.type === FORECAST) {
+    return action.forecast;
+  }
 
-    return state;
+  return state;
 }
 
 const rootReducer = combineReducers({
-    main: mainData,
-    forecast: forecastData,
-    list: citiesList
+  main: mainData,
+  forecast: forecastData,
+  list: citiesList
 });
 
 export default rootReducer

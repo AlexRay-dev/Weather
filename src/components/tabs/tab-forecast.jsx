@@ -1,7 +1,7 @@
-import {getCelsius, getDate, getTime} from "../../shared/utils";
+import {getCelsius, getDate, getTime} from "../../core/utils/utils";
 import {useSelector} from "react-redux";
 
-function TabForecast() {
+const TabForecast = () => {
   const data = useSelector(state => state.forecast);
 
   return (
@@ -12,26 +12,23 @@ function TabForecast() {
       </div>
     </div>
   )
-}
+};
 
-function ListForecast({data}) {
+const ListForecast = ({data}) => {
   const list = data.list?.map((item, index) =>
-    <ListItemForecast key={index}
-                      date={getDate(item.dt_txt)}
-                      time={getTime(item.dt)}
-                      temp={getCelsius(item.main?.temp)}
-                      feelTemp={getCelsius(item.main?.feels_like)}
-                      weather={(item.weather ?? {})[0]?.main}/>
+    <ListItemForecast
+      key={index}
+      date={getDate(item.dt_txt)}
+      time={getTime(item.dt)}
+      temp={getCelsius(item.main?.temp)}
+      feelTemp={getCelsius(item.main?.feels_like)}
+      weather={(item.weather ?? {})[0]?.main}/>
   );
 
-  return (
-    <ul className="tab-forecast__list">
-      {list}
-    </ul>
-  )
-}
+  return <ul className="tab-forecast__list">{list}</ul>;
+};
 
-function ListItemForecast({date, time, temp, feelTemp, weather}) {
+const ListItemForecast = ({date, time, temp, feelTemp, weather}) => {
   return (
     <li className="tab-forecast__list-item flex">
       <div className="tab-forecast__item-top flex">
@@ -51,6 +48,6 @@ function ListItemForecast({date, time, temp, feelTemp, weather}) {
       </div>
     </li>
   )
-}
+};
 
-export default TabForecast
+export default TabForecast;

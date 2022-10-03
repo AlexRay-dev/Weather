@@ -3,7 +3,7 @@ import TabDetails from "./tab-details";
 import TabForecast from "./tab-forecast";
 import TabHeader from "./tab-header";
 
-function Tabs() {
+const Tabs = () => {
   return (
     <div className="weather__tabs flex">
       <TabHeader/>
@@ -12,6 +12,6 @@ function Tabs() {
       <TabForecast/>
     </div>
   )
-}
+};
 
 export default Tabs;

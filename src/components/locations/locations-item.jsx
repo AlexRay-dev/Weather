@@ -1,12 +1,12 @@
 import {useDispatch} from "react-redux";
-import {removeCity} from "../../store/actions";
+import {removeCity} from "../../core/store/actions";
 
-function LocationsItem({name, showWeather}) {
+const LocationsItem = ({name, showWeather}) => {
   const dispatch = useDispatch();
 
   const handleRemove = (city) => {
-    dispatch(removeCity(city))
-  }
+    dispatch(removeCity(city));
+  };
 
   return (
     <li className="weather__locations-list-item flex">
@@ -16,6 +16,6 @@ function LocationsItem({name, showWeather}) {
       <button className="weather__location-del" onClick={() => handleRemove(name)}></button>
     </li>
   )
-}
+};
 
 export default LocationsItem;

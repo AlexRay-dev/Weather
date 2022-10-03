@@ -1,19 +1,20 @@
 import {useDispatch, useSelector} from "react-redux";
-import {addCity} from "../../store/actions";
-import {getCelsius} from "../../shared/utils";
+import {addCity} from "../../core/store/actions";
+import {getCelsius} from "../../core/utils/utils";
 
-function TabNow() {
+const TabNow = () => {
   const {temp, name} = useSelector(state => state.main);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const addFavorite = (city) => {
     dispatch(addCity(city));
-  }
+  };
+
   return (
     <div className="weather__tab tab-now">
       <div className="weather__tab-container weather__tab-container_now flex">
         <h1 className="header header_now">
-          {getCelsius(temp)}&#176;
+          {temp ? getCelsius(temp) : "0"}&#176;
         </h1>
 
         <div className="tab-now__bottom flex">
@@ -31,6 +32,6 @@ function TabNow() {
       </div>
     </div>
   )
-}
+};
 
-export default TabNow
+export default TabNow;

@@ -85,7 +85,7 @@ body {
     border: none;
     background-color: transparent;
     cursor: pointer;
-    background-image: url('../shared/img/search.svg');
+    background-image: url('../assets/img/search.svg');
     background-repeat: no-repeat;
 }
 
@@ -160,7 +160,7 @@ body {
 .weather__tab-container_now {
     flex-direction: column;
     justify-content: space-between;
-    background-image: url("../shared/img/clouds.svg");
+    background-image: url("../assets/img/clouds.svg");
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -218,7 +218,7 @@ body {
 
 .tab-forecast__weather {
     padding-bottom: 31px;
-    background-image: url("../shared/img/rain.svg");
+    background-image: url("../assets/img/rain.svg");
     background-repeat: no-repeat;
     background-position: bottom;
 }
@@ -255,6 +255,6 @@ body {
     width: 17px;
     height: 16px;
     align-self: center;
-    background-image: url('../shared/img/close-icon.svg');
+    background-image: url('../assets/img/close-icon.svg');
     background-repeat: no-repeat;
 }

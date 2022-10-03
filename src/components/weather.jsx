@@ -1,14 +1,14 @@
 import {useDispatch} from "react-redux";
 import {useEffect} from "react";
-import {API, weatherData} from "../shared/consts/api";
-import {setStorageData, STORAGE} from "../shared/utils";
-import {getForecast, getMain} from "../store/actions";
+import {API, weatherData} from "../core/consts/api";
+import {setStorageData, STORAGE} from "../core/utils/utils";
+import {getForecast, getMain} from "../core/store/actions";
 import Form from "./weather-form";
 import Tabs from "./tabs/tabs";
 import Locations from "./locations/locations";
-import {storageCity} from "../store";
+import {storageCity} from "../core/store";
 
-function Weather() {
+const Weather = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,7 +28,7 @@ function Weather() {
       dispatch(getMain(responseMain));
       dispatch(getForecast(responseForecast));
     } catch (e) {
-      console.log(e)
+      console.log(e);
     }
   }
 
@@ -44,6 +44,6 @@ function Weather() {
       </div>
     </div>
   )
-}
+};
 
 export default Weather;

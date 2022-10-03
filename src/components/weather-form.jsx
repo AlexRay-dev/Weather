@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-function WeatherForm({showWeather}) {
+const WeatherForm = ({showWeather}) => {
   const [value, setValue] = useState('');
 
   function handleSubmit(event) {

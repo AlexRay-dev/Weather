@@ -3,18 +3,18 @@ export const REMOVE_CITY = 'REMOVE_CITY';
 export const FORECAST = 'FORECAST';
 export const MAIN = 'MAIN';
 
-export function addCity(name) {
+export const addCity = (name) => {
   return {type: ADD_CITY, name};
-}
+};
 
-export function removeCity(name) {
+export const removeCity = (name) => {
   return {type: REMOVE_CITY, name};
-}
+};
 
-export function getForecast(data) {
+export const getForecast = (data) => {
   return {type: FORECAST, forecast: data};
-}
+};
 
-export function getMain(data) {
+export const getMain = (data) => {
   return {type: MAIN, main: data};
-}
+};

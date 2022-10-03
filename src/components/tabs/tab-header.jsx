@@ -1,4 +1,4 @@
-function TabHeader() {
+const TabHeader = () => {
   return (
     <>
       <input className="wrap-input" type="radio" name="wrap-input" id="wrap-btn_now" value=""
@@ -10,6 +10,6 @@ function TabHeader() {
       <label className="wrap-btn" htmlFor="wrap-btn_forecast">Forecast</label>
     </>
   )
-}
+};
 
 export default TabHeader;
